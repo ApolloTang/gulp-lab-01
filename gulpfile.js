@@ -41,6 +41,7 @@ gulp.task('load-config', function (callback) {
             return callback(err);
         } else {
             var version = stdout;
+            console.log('---------------: ', version)
 
             // try {
             //     buildTargetConfig = require('./etc/env/' + buildTarget);
@@ -49,10 +50,10 @@ gulp.task('load-config', function (callback) {
             //     process.exit(1);
             // }
 
-            // buildTargetConfig.NAME = buildTarget;
-            // buildTargetConfig.VERSION = version.toString('utf8').trim('');
-            // buildTargetConfig.OPTIMIZE_BUILD = !buildTargetConfig.NON_PRODUCTION;
-            // buildTargetConfig.BUILD_PATH = './release/' + buildTarget;
+            buildTargetConfig.NAME = buildTarget;
+            buildTargetConfig.VERSION = version.toString('utf8').trim('');
+            buildTargetConfig.OPTIMIZE_BUILD = !buildTargetConfig.NON_PRODUCTION;
+            buildTargetConfig.BUILD_PATH = './release/' + buildTarget;
 
         return callback(null);
 
